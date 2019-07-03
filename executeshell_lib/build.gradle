@@ -1,10 +1,9 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "cn.endureblaze.executeshellsample"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -20,8 +19,4 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':executeshell_lib')
-    implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
-    implementation 'com.google.android.material:material:1.1.0-alpha07'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
