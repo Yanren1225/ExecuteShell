@@ -17,7 +17,7 @@ ExecuteShell 最低支持到Android [Ice Cream Sandwich](https://developer.andro
 2.在模块的 build.gradle 中添加依赖
 ```Java
 dependencies {
-	        implementation 'com.github.EndureBlaze:executeshell_lib:1.0'
+	        implementation 'com.github.EndureBlaze:executeshell:1.0'
 	}
 ```
 ### Maven
@@ -73,7 +73,7 @@ shell_str 是转换为 String 类型的 shell 指令
 ## 混淆(Proguard)
 如果你有使用 Proguard 请添加如下代码
 ```Java
--keep public class cn.ednureblaze.executeshell.ExecuteShell
+-keep public class cn.ednureblaze.executeshell.**
 ```
 ## 其他作品
 [Kirby Assistant](https://github.com/EndureBlaze/Kirby-Assistant)
