@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainCoordinatorLayout1">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/isroot_textView" android:layout_centerHorizontal="true"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/isroot_textView"
+            android:inputType="textPersonName"
+            android:hint="输入shell指令"
+            android:ems="10"
+            android:id="@+id/editText"/>
+    <Button
+            android:text="输出结果"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/start_output_btn"
+            android:layout_below="@id/isroot_textView"
+    android:layout_toRightOf="@id/editText"/>
+    <Button
+            android:text="不输出只执行"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/start_btn"
+            android:layout_below="@id/isroot_textView"
+            android:layout_toEndOf="@id/start_output_btn" android:layout_toRightOf="@id/start_output_btn"/>
+    <TextView
+            android:text="下面会输出结果"
+            android:layout_below="@id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView2"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    android:layout_below="@id/textView2">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/output"/>
+    </ScrollView>
+
+</RelativeLayout>
