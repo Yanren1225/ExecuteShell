@@ -7,21 +7,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import cn.endureblaze.executeshell.ExecuteShell;
 
 public class ExecuteShellActivity extends AppCompatActivity {
-   private  String is_root_str;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        //判断是否有root权限
+        String is_root_str;
         if(ExecuteShell.haveRoot()){
-           is_root_str="true";//有权限
+           is_root_str ="true";//有权限
     }else{
-       is_root_str="false";//无权限
+       is_root_str ="false";//无权限
     }
     TextView is_root = findViewById(R.id.isroot_textView);
-      is_root.setText("是否有root权限："+is_root_str);
-
+      is_root.setText("是否有root权限："+ is_root_str);
         final EditText edit=findViewById(R.id.editText);
         final TextView output_root = findViewById(R.id.output);
         final Button start_btn=findViewById(R.id.start_btn);
@@ -31,7 +30,7 @@ public class ExecuteShellActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         String shell_str = edit.getText().toString();
-                        String return_str = ExecuteShell.execRootCmd(shell_str);
+                        String return_str = ExecuteShell.execRootShell(shell_str);
                         //显示结果
                         output_root.setText(return_str);
                     }
@@ -42,7 +41,7 @@ public class ExecuteShellActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String shell_str = edit.getText().toString();
-                int return_int = ExecuteShell.execRootCmdSilent(shell_str);
+                int return_int = ExecuteShell.execRootShellSilent(shell_str);
                 output_root.setText(""+return_int);
             }
         });

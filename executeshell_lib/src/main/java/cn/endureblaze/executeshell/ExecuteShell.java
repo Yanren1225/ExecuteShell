@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public final class ExecuteShell
 {
-    private static final String TAG = "RootCmd";
+    private static final String TAG = "RootShell";
     private static boolean mHaveRoot = false;
     /**
      *   判断机器Android是否已经root，即是否获取root权限
@@ -17,7 +17,7 @@ public final class ExecuteShell
     {
         if (!mHaveRoot)
         {
-            int ret = execRootCmdSilent("echo test"); // 通过执行测试命令来检测
+            int ret = execRootShellSilent("echo test"); // 通过执行测试命令来检测
             if (ret != -1)
             {
                 Log.i(TAG, "have root!");
@@ -38,7 +38,7 @@ public final class ExecuteShell
     /**
      * 执行命令并且输出结果
      */
-    public static String execRootCmd(String cmd)
+    public static String execRootShell(String shell)
     {
         String result = "";
         DataOutputStream dos = null;
@@ -50,8 +50,8 @@ public final class ExecuteShell
             dos = new DataOutputStream(p.getOutputStream());
             dis = new DataInputStream(p.getInputStream());
 
-            Log.i(TAG, cmd);
-            dos.writeBytes(cmd + "\n");
+            Log.i(TAG, shell);
+            dos.writeBytes(shell + "\n");
             dos.flush();
             dos.writeBytes("exit\n");
             dos.flush();
@@ -98,7 +98,7 @@ public final class ExecuteShell
     /**
      * 执行命令但不关注结果输出
      */
-    public static int execRootCmdSilent(String cmd)
+    public static int execRootShellSilent(String shell)
     {
         int result = -1;
         DataOutputStream dos = null;
@@ -108,8 +108,8 @@ public final class ExecuteShell
             Process p = Runtime.getRuntime().exec("su");
             dos = new DataOutputStream(p.getOutputStream());
 
-            Log.i(TAG, cmd);
-            dos.writeBytes(cmd + "\n");
+            Log.i(TAG, shell);
+            dos.writeBytes(shell + "\n");
             dos.flush();
             dos.writeBytes("exit\n");
             dos.flush();
