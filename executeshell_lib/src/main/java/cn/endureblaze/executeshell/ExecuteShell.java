@@ -6,30 +6,25 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public final class ExecuteShell
-{
+public final class ExecuteShell {
     private static final String TAG = "RootShell";
     private static boolean mHaveRoot = false;
+
     /**
-     *   判断机器Android是否已经root，即是否获取root权限
+     * 判断机器Android是否已经root，即是否获取root权限
+     *
+     * @return 有 root 返回 true，否则返回 false
      */
-    public static boolean haveRoot()
-    {
-        if (!mHaveRoot)
-        {
+    public static boolean haveRoot() {
+        if (!mHaveRoot) {
             int ret = execRootShellSilent("echo test"); // 通过执行测试命令来检测
-            if (ret != -1)
-            {
+            if (ret != -1) {
                 Log.i(TAG, "have root!");
                 mHaveRoot = true;
-            }
-            else
-            {
+            } else {
                 Log.i(TAG, "not root!");
             }
-        }
-        else
-        {
+        } else {
             Log.i(TAG, "mHaveRoot = true, have root!");
         }
         return mHaveRoot;
@@ -37,15 +32,15 @@ public final class ExecuteShell
 
     /**
      * 执行命令并且输出结果
+     * @param shell 需要执行的 shell 命令
+     * @return 返回执行的结果，如果返回空串则执行失败
      */
-    public static String execRootShell(String shell)
-    {
+    public static String execRootShell(String shell) {
         String result = "";
         DataOutputStream dos = null;
         DataInputStream dis = null;
 
-        try
-        {
+        try {
             Process p = Runtime.getRuntime().exec("su");// 经过Root处理的android系统即有su命令
             dos = new DataOutputStream(p.getOutputStream());
             dis = new DataInputStream(p.getInputStream());
@@ -56,38 +51,25 @@ public final class ExecuteShell
             dos.writeBytes("exit\n");
             dos.flush();
             String line = null;
-            while ((line = dis.readLine()) != null)
-            {
+            while ((line = dis.readLine()) != null) {
                 Log.d("result", line);
                 result += line;
             }
             p.waitFor();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            if (dos != null)
-            {
-                try
-                {
+        } finally {
+            if (dos != null) {
+                try {
                     dos.close();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if (dis != null)
-            {
-                try
-                {
+            if (dis != null) {
+                try {
                     dis.close();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -97,14 +79,14 @@ public final class ExecuteShell
 
     /**
      * 执行命令但不关注结果输出
+     * @param shell 需要执行的 shell 命令
+     * @return 返回 0 代表执行成功 返回其他数字代表执行失败
      */
-    public static int execRootShellSilent(String shell)
-    {
+    public static int execRootShellSilent(String shell) {
         int result = -1;
         DataOutputStream dos = null;
 
-        try
-        {
+        try {
             Process p = Runtime.getRuntime().exec("su");
             dos = new DataOutputStream(p.getOutputStream());
 
@@ -115,21 +97,13 @@ public final class ExecuteShell
             dos.flush();
             p.waitFor();
             result = p.exitValue();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            if (dos != null)
-            {
-                try
-                {
+        } finally {
+            if (dos != null) {
+                try {
                     dos.close();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }

@@ -5,19 +5,22 @@ ExecuteShell 是一个可以让你在你的 Android 项目上方便快速使用 
 ## 配置要求
 ExecuteShell 最低支持到Android [Ice Cream Sandwich](https://developer.android.com/about/versions/android-4.0-highlights.html) (API 14)
 ## 开始使用
+
+> 版本号请看顶部
+
 ### Gradle
 1.在项目根目录的 build.gradle 添加如下代码
 ```Java
 	allprojects {
 		repositories {
 			maven { url 'https://jitpack.io' }
-		}
+
 	}
 ```
 2.在需要使用模块(一般为app)的 build.gradle 中添加依赖
 ```Java
 dependencies {
-	        implementation 'com.github.EndureBlaze:executeshell:1.1'
+	        implementation 'com.github.EndureBlaze:executeshell:$version'
 	}
 ```
 ### Maven
@@ -35,7 +38,7 @@ dependencies {
 	<dependency>
 	    <groupId>com.github.EndureBlaze</groupId>
 	    <artifactId>executeshell</artifactId>
-	    <version>1.1</version>
+	    <version>$version</version>
 	</dependency>
 ```
 ## 功能说明
@@ -68,7 +71,7 @@ shell_str 是转换为 String 类型的 shell 指令
 返回其他数字代表执行失败
 
 ## 演示
-可以在 [smaple](https://github.com/EndureBlaze/executeshell/tree/master/sample) 查看详细使用，或者下载 [apk](https://github.com/EndureBlaze/executeshell/blob/master/sample.apk) 实际查看使用结果
+可以在 [sample](https://github.com/EndureBlaze/executeshell/tree/master/sample) 查看详细使用，或者下载 [apk](https://cdn.jsdelivr.net/gh/EndureBlaze/ExecuteShell/sample.apk) 实际查看使用结果
 
 ## 关于依赖库
 本项目没有使用任何依赖库
