@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ExecuteShell.iml" filepath="$PROJECT_DIR$/.idea/ExecuteShell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/executeshell_lib/ExecuteShell.executeshell_lib.iml" filepath="$PROJECT_DIR$/.idea/modules/executeshell_lib/ExecuteShell.executeshell_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/ExecuteShell.sample.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/ExecuteShell.sample.iml" />
+    </modules>
+  </component>
+</project>
