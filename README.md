@@ -65,7 +65,7 @@ dependencies {
 ### 检测 root 状态
 
 ```kotlin
-ExecuteShell.haveRoot()；
+ExecuteShell.haveRoot();
 ```
 
 使用后返回 boolean 类型数据
